@@ -10,14 +10,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      user.hasMany(models.users_story);
     }
   }
   user.init({
-    name: { type: DataTypes.STRING, unique: true, allowNull: false},
-    email: { type: DataTypes.STRING, allowNull: false},
+    name: { type: DataTypes.STRING, allowNull: false },
+    surname: { type: DataTypes.STRING, allowNull: false },
+    email: { type: DataTypes.STRING, unique: true, allowNull: false },
     phone: { type: DataTypes.INTEGER },
-    password: { type: DataTypes.STRING, allowNull: false}
+    date_of_birth: { type: DataTypes.DATE, allowNull: false },
+    password: { type: DataTypes.STRING, allowNull: false },
+    instagram_blog: DataTypes.STRING,
+    IsAdmin: DataTypes.BOOLEAN,
+
   }, {
     sequelize,
     modelName: 'user',
