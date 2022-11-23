@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       users_story.belongsTo(models.user);
+      users_story.belongsToMany(models.user, {
+        through: "favorite_story",
+        foreignKey: "storyId"
+      })
     }
   }
   users_story.init({
@@ -20,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     photo2: DataTypes.STRING,
     photo3: DataTypes.STRING,
     countryId: { type: DataTypes.INTEGER, allowNull: false },
-    userId: { type: DataTypes.INTEGER, allowNull: false },
   }, {
     sequelize,
     modelName: 'users_story',

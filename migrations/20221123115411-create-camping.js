@@ -1,20 +1,38 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users_stories', {
+    await queryInterface.createTable('campings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      story: {
+      description: {
         allowNull: false,
         type: Sequelize.TEXT
+      },
+      wild_camping: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN
+      },
+      pricePerNightPp: {
+        type: Sequelize.INTEGER
+      },
+      currency: {
+        type: Sequelize.STRING
+      },
+      latitude: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      longitude: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       photo1: {
         allowNull: false,
@@ -51,6 +69,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users_stories');
+    await queryInterface.dropTable('campings');
   }
 };

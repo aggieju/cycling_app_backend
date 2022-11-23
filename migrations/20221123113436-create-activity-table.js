@@ -1,30 +1,24 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users_stories', {
+    await queryInterface.createTable('activity_tables', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      activity: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      story: {
+      currently_cycling: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.BOOLEAN
       },
-      photo1: {
+      activeUntil: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      photo2: {
-        type: Sequelize.STRING
-      },
-      photo3: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       countryId: {
         allowNull: false,
@@ -51,6 +45,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users_stories');
+    await queryInterface.dropTable('activity_tables');
   }
 };

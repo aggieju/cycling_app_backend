@@ -1,29 +1,27 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users_stories', {
+    await queryInterface.createTable('country_budgets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      amountPerDay: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      currency: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      story: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
-      photo1: {
+      typeAccomodation: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      photo2: {
-        type: Sequelize.STRING
-      },
-      photo3: {
+      typeFood: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       countryId: {
@@ -51,6 +49,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users_stories');
+    await queryInterface.dropTable('country_budgets');
   }
 };

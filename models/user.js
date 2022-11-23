@@ -11,6 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       user.hasMany(models.users_story);
+      user.hasMany(models.country_budget);
+      user.hasMany(models.activity_table);
+      user.hasMany(models.camping);
+      user.belongsToMany(models.users_story, {
+        through: "favorite_story",
+        foreignKey: "userId"
+      });
+      user.belongsToMany(models.camping, {
+        through: "review_camping",
+        foreignKey: "userId"
+      });
     }
   }
   user.init({

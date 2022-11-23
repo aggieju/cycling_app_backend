@@ -1,23 +1,22 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users_stories', {
+    await queryInterface.createTable('review_campings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      story: {
+      review: {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      photo1: {
+      rating: {
         allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      photo1: {
         type: Sequelize.STRING
       },
       photo2: {
@@ -26,18 +25,22 @@ module.exports = {
       photo3: {
         type: Sequelize.STRING
       },
-      countryId: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+      campingId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "campings",
+          key: "id"
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
       },
       userId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: "users",
           key: "id"
         },
-        onDelete: "SET NULL",
+        onDelete: "CASCADE",
         onUpdate: "CASCADE"
       },
       createdAt: {
@@ -51,6 +54,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users_stories');
+    await queryInterface.dropTable('review_campings');
   }
 };
