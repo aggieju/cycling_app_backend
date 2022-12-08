@@ -17,7 +17,6 @@ module.exports = {
         type: Sequelize.TEXT
       },
       wild_camping: {
-        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       pricePerNightPp: {
@@ -44,9 +43,9 @@ module.exports = {
       photo3: {
         type: Sequelize.STRING
       },
-      countryId: {
+      country: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       userId: {
         allowNull: false,

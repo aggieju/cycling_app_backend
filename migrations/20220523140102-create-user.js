@@ -13,19 +13,16 @@ module.exports = {
         allowNull: false,
       },
       surname: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.STRING
       },
       email: {
         type: Sequelize.STRING,
         unique: true
       },
       phone: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       date_of_birth: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       password: {
@@ -33,11 +30,9 @@ module.exports = {
         allowNull: false,
       },
       instagram_blog: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       IsAdmin: {
-        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

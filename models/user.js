@@ -26,10 +26,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   user.init({
     name: { type: DataTypes.STRING, allowNull: false },
-    surname: { type: DataTypes.STRING, allowNull: false },
+    surname: { type: DataTypes.STRING },
     email: { type: DataTypes.STRING, unique: true, allowNull: false },
     phone: { type: DataTypes.STRING },
-    date_of_birth: { type: DataTypes.DATE, allowNull: false },
+    date_of_birth: { type: DataTypes.DATE },
     password: { type: DataTypes.STRING, allowNull: false },
     instagram_blog: DataTypes.STRING,
     IsAdmin: DataTypes.BOOLEAN,
